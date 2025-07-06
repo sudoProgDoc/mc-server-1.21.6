@@ -1,1 +1,53 @@
-# minecraft-server-1.21.6
+# Minecraft Server 1.21.6
+
+Репозиторий с конфигурацией и файлами для запуска Minecraft сервера версии 1.21.6 через Docker.
+
+---
+
+## Как склонировать репозиторий
+
+```bash
+git clone https://github.com/sudoProgDoc/minecraft-server-1.21.6.git
+cd minecraft-server-1.21.6
+```
+
+---
+
+## Запуск Minecraft сервера через Docker
+
+1. Соберите Docker-образ:
+
+```bash
+docker build -t minecraft-server:1.21.6 .
+```
+
+2. Запустите контейнер с пробросом порта 25565 (стандартный порт Minecraft):
+
+```bash
+docker run -d -p 25565:25565 --name mc-server minecraft-server:1.21.6
+```
+
+3. Проверьте, что сервер запущен:
+
+```bash
+docker ps
+```
+
+---
+
+## Дополнительно
+
+- Для сохранения мира и данных сервера рекомендуется смонтировать том:
+
+```bash
+docker run -d -p 25565:25565 -v $(pwd)/data:/data --name mc-server minecraft-server:1.21.6
+```
+
+- Убедитесь, что у вас установлен и запущен Docker.
+
+---
+
+Удачной игры!
+```
+
+Если нужно, могу помочь добавить описание конкретных параметров или примеры конфигураций сервера.
